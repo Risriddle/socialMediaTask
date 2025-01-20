@@ -13,7 +13,7 @@ const App = () => {
   
           <Route element={<Layout />} path="/">
             <Route element={<UserForm />} index />
-            <Route element={<AdminDashboard />} path="adminDashboard" />
+            <Route element={<AdminDashboard />} path="/adminDashboard" />
           </Route>
         </Routes>
       </BrowserRouter>

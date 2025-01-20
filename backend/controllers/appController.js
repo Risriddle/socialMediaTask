@@ -4,6 +4,13 @@ const bcrypt = require("bcryptjs");
 const { upload, uploadToS3 } = require("../config/s3Config");
 
 exports.uploadData=[upload.array("images"),async(req,res)=>{
+  res.setHeader("Access-Control-Allow-Origin", "https://socialmediauploads.netlify.app");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+      return res.status(200).end(); 
+  }
          const {name,handle}=req.body;
          const imageUpload=req.files.map(file=>uploadToS3(file));
          const imageUrls=await Promise.all(imageUpload);
@@ -19,6 +26,13 @@ exports.uploadData=[upload.array("images"),async(req,res)=>{
 }]
 
 exports.getData=async(req,res)=>{
+  res.setHeader("Access-Control-Allow-Origin", "https://socialmediauploads.netlify.app");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+      return res.status(200).end(); 
+  }
       try{
             const data=await User.find();
             console.log(data)
@@ -36,6 +50,13 @@ const verifyPassword = async (enteredPassword, storedHashedPassword) => {
 
 
 exports.verifyAdmin=async(req,res)=>{
+  res.setHeader("Access-Control-Allow-Origin", "https://socialmediauploads.netlify.app");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+      return res.status(200).end(); 
+  }
     const {admin,pwd}=req.body;
     console.log(admin,pwd)
     try{

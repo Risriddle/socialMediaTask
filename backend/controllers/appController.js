@@ -18,8 +18,6 @@ exports.uploadData=[upload.array("images"),async(req,res)=>{
 
 }]
 
-
-
 exports.getData=async(req,res)=>{
       try{
             const data=await User.find();
@@ -30,8 +28,6 @@ exports.getData=async(req,res)=>{
        res.status(500).json({message:"error while fetching data",error})
       }
 }
-
-
 
 
 const verifyPassword = async (enteredPassword, storedHashedPassword) => {

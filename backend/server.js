@@ -11,12 +11,12 @@ require("dotenv").config();
 
 const io = new Server(server, {
     cors: {
-        origin: "http://localhost:5173",
+        origin: "https://socialmediauploads.netlify.app/",
         methods: ["GET", "POST", "PUT", "DELETE"],
     }
 });
 
-const corsOptions={ origin: "http://localhost:5173",
+const corsOptions={ origin: "https://socialmediauploads.netlify.app/",
     methods: ["GET", "POST", "PUT", "DELETE"],}
 app.use(cors(corsOptions))
 const port = process.env.PORT || 5000;

@@ -33,10 +33,13 @@ mongoose.connect(process.env.MONGO_DB, {})
 app.use(express.json());
 
 
-app.use("/", (req, res, next) => {
-    req.io = io; 
+app.use((req, res, next) => {
+    req.io = io;
     next();
-}, Router);
+});
+
+app.use("/", Router);
+
 
 const getUsersData = async () => {
     const res = await User.find();

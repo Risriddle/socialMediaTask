@@ -20,7 +20,7 @@ const io = new Server(server, {
 const corsOptions={ origin: "https://socialmediauploads.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type"],}
-    
+
 app.use(cors(corsOptions))
 
 app.options('*', cors(corsOptions));
@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGO_DB, {})
 app.use(express.json());
 
 
-app.use("/api", (req, res, next) => {
+app.use("/", (req, res, next) => {
     req.io = io; 
     next();
 }, Router);

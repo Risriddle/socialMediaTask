@@ -1,5 +1,5 @@
 import axios from 'axios'
-const BASE_URL="https://social-media-task-chi-bice.vercel.app/api"
+const BASE_URL="https://social-media-task-chi-bice.vercel.app"
 
 const api=axios.create({
          baseURL:BASE_URL,

@@ -13,7 +13,7 @@ const AdminDashboard = () => {
 
     useEffect(() => {
         if (isVerified) {
-            const socket = io('http://localhost:5000');  
+            const socket = io('https://social-media-task-bay.vercel.app');  
 
             
             socket.on('allUsers', (updatedData) => {

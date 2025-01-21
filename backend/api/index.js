@@ -5,8 +5,8 @@ const app = express();
 const server = http.createServer(app);
 const cors = require("cors");
 const mongoose = require("mongoose");
-const Router = require("./routes/appRoutes");
-const User = require("./models/User");
+const Router = require("../routes/appRoutes");
+const User = require("../models/User");
 require("dotenv").config();
 const port = process.env.PORT || 5000;
 const io = new Server(server, {
